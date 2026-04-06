@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # a collection of install scripts to download utils for the software I use
 
@@ -7,6 +7,7 @@
 # ==== ZSH ====
 : "${ZSH:=$XDG_CONFIG_HOME/oh-my-zsh}"
 : "${ZSH_CUSTOM:=$ZSH/custom}"
+zsh_source_required=false
 
 if ! [ -d "$ZSH" ]; then
     echo "Installing oh-my-zsh to $ZSH."
@@ -22,6 +23,7 @@ if [ ! -d "$ZSH_AUTOSUG" ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_AUTOSUG" # zsh-autosuggestions
 else
     echo "zsh-autosuggestions plugin is already installed at $ZSH_AUTOSUG."
+    zsh_source_required=true
 fi
 
 export ZSH_SYNTHIGH="$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
@@ -30,7 +32,9 @@ if [ ! -d "$ZSH_SYNTHIGH" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_SYNTHIGH" # zsh-syntax-highlighting
 else
     echo "zsh-syntax-highlighting plugin is already installed at $ZSH_AUTOSUG."
+    zsh_source_required=true
 fi
+
 
 # dracula theme for zsh
 OMZ_THEME_DIR="$ZSH/themes"
@@ -70,5 +74,10 @@ else
     echo "Dracula theme is already installed at $DRACULA_THEME_DIR."
 fi
 
-echo "Run \"chsh -s \$(which zsh)\" to change default shell to zsh."
-echo "Run \"exec zsh\" to source zsh config."
+if [ "$SHELL" != "/usr/bin/zsh" ]; then
+    echo "Run \"chsh -s \$(which zsh)\" to change default shell to zsh."
+fi
+
+if [ "$zsh_source_required" = true ]; then
+    echo "Run \"exec zsh\" to source zsh config."
+fi
