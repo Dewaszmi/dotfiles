@@ -1,1 +1,0 @@
-/home/dewaszmi/.config/nvim/lua/custom/themes/dracula-theme.lua

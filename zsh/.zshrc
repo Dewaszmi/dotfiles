@@ -25,6 +25,8 @@ export PATH=$PATH:/home/dewaszmi/.cargo/bin
 
 eval "$(zoxide init zsh)"
 
+# [ -f ~/.config/fzf/fzfrc ] && source $XDG_CONFIG_HOME/fzf/fzfrc
+
 # ===========================
 # aliases
 alias c="clear"
@@ -61,9 +63,12 @@ alias tk="tmux kill-session -t"
 
 # other
 alias sv="source .venv/bin/activate"
-alias kps="sh ~/stuff/keepass-tui/interactive-cli.sh $KEEPASS_DATABASE_PATH"
+alias kps="keepassxc-cli open $KEEPASS_DATABASE_PATH"
 alias zconf="vi $HOME/.zshrc"
 alias viconf="vi $XDG_CONFIG_HOME/nvim"
+alias theme-select='ls ~/.config/my-themes/*.sh | fzf | xargs -r bash'
 
 # git aliases
 alias lg="lazygit"
+alias spot="spotify_player"
+

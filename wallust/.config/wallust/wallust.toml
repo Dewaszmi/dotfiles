@@ -1,0 +1,16 @@
+[templates]
+kitty.template = 'kitty-colors.conf'
+kitty.target = '~/.config/kitty/colors-wallust.conf'
+
+wallust.template = 'pywalfox-colors.conf'
+wallust.target = '~/.cache/wal/colors.json'
+
+neopywal.template = "colors-neopywal.vim"
+neopywal.target = "~/.cache/wallust/colors_neopywal.vim"
+
+tmux-dracula.template = "tmux-dracula-colors.conf"
+tmux-dracula.target = '~/.config/tmux/dracula-colors.conf'
+
+[hooks]
+pywalfox = 'sh -c "pywalfox update"'
+tmux-reload = 'tmux source-file ~/.config/tmux/tmux.conf'
