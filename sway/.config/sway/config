@@ -1,0 +1,19 @@
+set $config_dir $HOME/.config/sway/config.d
+set $scripts_dir $config_dir/scripts
+
+# Main config
+include "$config_dir/*.conf"
+include "$config_dir/keybindings/*.conf"
+
+### MISC ###
+
+include /etc/sway/config-vars.d/*f
+include /etc/sway/config.d/*
+
+######################
+### OTHER SETTINGS ###
+######################
+
+# Mouse focus behavior:
+focus_follows_mouse no
+

@@ -1,0 +1,27 @@
+### HARDWARE ###
+
+# Audio
+bindsym XF86AudioRaiseVolume exec "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+; pkill -RTMIN+8 waybar"
+bindsym XF86AudioLowerVolume exec "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-; pkill -RTMIN+8 waybar"
+bindsym XF86AudioMute exec "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; pkill -RTMIN+8 waybar"
+
+# Brightness
+bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec light -A 5
+
+# Media keys
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Toggle between monitors
+bindsym $mod+KP_7 exec systemd-run --user ~/.config/sway/config.d/scripts/monitor_select.sh
+
+# Launch power menu
+bindsym XF86PowerOff exec ~/.config/sway/config.d/scripts/power-key-menu.sh
+
+# Screenshot tool
+bindsym --release Shift+Super+s exec grim -g "$(slurp)" - | wl-copy
+
+

@@ -1,0 +1,12 @@
+@import "~/.config/rofi/config.rasi"
+
+* {
+	location: west;
+	selected-normal-background: #00ffff;
+}
+
+window {
+	width: 35%;
+	height: 40%;
+	x-offset: 13%;
+}

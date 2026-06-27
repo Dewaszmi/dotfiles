@@ -1,0 +1,152 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 4,
+  "margin-top": 0,
+  "margin-bottom": 0,
+
+  // Choose the order of the modules
+  "include": ["/home/dewaszmi/.config/waybar/modules-left/config.jsonc"],
+  "modules-center": ["sway/workspaces"],
+  "modules-right": [
+    "privacy",
+    "power-profiles-daemon",
+    "custom/audio",
+    "backlight",
+    "battery",
+    "clock",
+  ],
+
+  // Configuration for individual modules
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+    },
+    "format": "{icon}",
+    "format-icons": {
+      "1": "I",
+      "2": "II",
+      "3": "III",
+      "4": "IV",
+      "5": "V",
+      "6": "VI",
+      "7": "VII",
+      "8": "VIII",
+      "9": "IX",
+      "10": "X",
+    },
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10,
+  },
+
+  "clock": {
+    "timezone": "Europe/Warsaw",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}",
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "⚡{capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon}   {capacity}% ({time})",
+    "format-icons": ["", "", "", "", ""],
+    "interval": 10,
+    "exec": "~/.config/waybar/scripts/battery.sh",
+    "return-type": "text",
+  },
+
+  "network": {
+    "format-wifi": "WIFI | SSID: {essid} (STRENGTH {signalStrength}%)",
+    "format-ethernet": " {ifname} Connected",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "⚠ Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+  },
+
+  "cpu": {
+    "format": "CPU: LOAD {load}% USAGE {usage}%",
+    //"tooltip": false
+  },
+
+  "custom/audio": {
+    "format": "{}",
+    "signal": 8,
+    "interval": 5,
+    "exec": "~/.config/waybar/scripts/audio.sh",
+    "on-click": "pavucontrol",
+  },
+
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "BACKLIGHT: {percent}%",
+  },
+
+  "custom/hostname": {
+    "format": "HOSTNAME: {}",
+    "exec": "cat /etc/os-release | grep '^NAME' | cut -d '=' -f2 | xargs",
+    "interval": "once",
+  },
+
+  "mpris": {
+    "format": "{artist} - {title}",
+    "format-paused": "⏸  {artist} - {title}",
+    "format-stopped": "No music",
+    "max-length": 40,
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+  },
+
+  "bluetooth": {
+    "format": "", // an empty format will hide the module
+    "format-connected": "BLUETOOTH: {num_connections} CONNECTED",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+  },
+
+  "user": {
+    "format": "USER: {user} | UPTIME: {work_H}:{work_M}",
+  },
+
+  "power-profiles-daemon": {
+    "format": "PPD: {icon}",
+    "tooltip": false,
+    "format-icons": {
+      "power-saver": "LIMITED", // "CONSERVATION OF POWER",
+      "balanced": "STANDARD", // "INDECISIVE",
+      "performance": "ADDITIONAL", // "ENVIRONMENTAL NEGLIGENCE",
+    },
+  },
+
+  "privacy": {
+    "modules": [
+      {
+        "type": "audio-in",
+        "tooltip": "false",
+        "icon-name": "microphone-sensitivity-high-symbolic",
+      },
+      {
+        "type": "screenshare",
+        "tooltip": "false",
+        "icon-name": "screen-share-symbolic",
+      },
+    ],
+  },
+}
