@@ -1,8 +1,7 @@
 @import "~/.config/rofi/config.rasi"
 
 * {
-	location: east;
-	selected-normal-background: #550066;
+	location: west;
 }
 
 window {

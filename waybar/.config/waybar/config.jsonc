@@ -107,7 +107,7 @@
     "format": "{artist} - {title}",
     "format-paused": "⏸  {artist} - {title}",
     "format-stopped": "No music",
-    "max-length": 40,
+    "max-length": 30,
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
