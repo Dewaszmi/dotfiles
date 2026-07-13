@@ -10,6 +10,8 @@ include "$config_dir/keybindings/*.conf"
 include /etc/sway/config-vars.d/*f
 include /etc/sway/config.d/*
 
+exec systemctl --user import-environment
+
 ######################
 ### OTHER SETTINGS ###
 ######################

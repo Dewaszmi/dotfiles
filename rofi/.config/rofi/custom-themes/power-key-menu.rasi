@@ -1,11 +1,10 @@
 @import "~/.config/rofi/config.rasi"
 
 * {
-	location: west;
+	location: center;
 }
 
 window {
 	width: 35%;
 	height: 30%;
-	x-offset: -13%;
 }

@@ -12,6 +12,7 @@
 #backlight,
 #cpu,
 #mpris,
+#custom-mpris,
 #workspaces,
 #tray,
 #power-profiles-daemon,
@@ -51,14 +52,16 @@
   border-width: 0px 6px 0px 0px;
 }
 
-#mpris {
+#mpris,
+#custom-mpris {
   background-color: #222222;
   color: #FFFFFF;
   border-color: #777700;
   border-width: 0px 6px 0px 0px;
 }
 
-#mpris {
+#mpris,
+#custom-mpris {
   border-width: 0px 6px 2px 0px;
 }
 

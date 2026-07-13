@@ -103,11 +103,10 @@
     "interval": "once",
   },
 
-  "mpris": {
-    "format": "{artist} - {title}",
-    "format-paused": "⏸  {artist} - {title}",
-    "format-stopped": "No music",
-    "max-length": 30,
+  "custom/mpris": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/mpris.sh",
+    "interval": 1,
     "on-click": "playerctl play-pause",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
